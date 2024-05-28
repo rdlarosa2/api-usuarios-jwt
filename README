@@ -1,0 +1,32 @@
+
+1] Ingrese al sitio https://sourceforge.net/projects/hsqldb/ y oprima el botón verde 'Download'. 
+   El archivo que se va a descargar se llama hsqldb-2.7.2.zip
+
+1.1] Cree un directorio sobre el drive C:\ un directorio llamado "downloads"
+
+1.2] Copie el archivo hsqldb-2.7.2.zip en el directorio C:\downloads
+
+1.3] Desde el explorador de Windows haga clic derecho sobre el archivo C:\downloads\hsqldb-2.7.2.zip y oprima la opción "Extract All..."
+
+1.4] En el campo 'Select a Destination and Extract Files' deje el valor C:\downloads\ y oprima el botón 'Extract'.
+     Como consecuencia se creara el directorio C:\downloads\hsqldb-2.7.2
+	 
+1.5] Adicione el directorio C:\downloads\hsqldb-2.7.2\hsqldb\bin a la variable de ambiente 'Path' de Windows.	 
+	 
+1.6] Ejecute el aplicativo 'Command Prompt' y sobre este aplicativo ejecute el comando: cd C:\downloads\hsqldb-2.7.2\hsqldb\bin
+
+1.7] En esa misma ventana ejecute el comando: java -cp ../lib/hsqldb.jar org.hsqldb.server.Server --props C:\downloads\hsqldb-2.7.2\hsqldb\conf\server.properties --database.0 mem:mymemdb --dbname.0 mymemdb
+
+2] Vamos a mandara a ejecutar el aplicativo que provee el API de usuario.	
+
+2.1] Cree un directorio llamado C:\wspace-spring\ 
+
+2.2] Ejecute el aplicativo 'Command Prompt' y sobre este aplicativo ejecute el comando: cd C:\wspace-spring\
+
+2.3] Ejecute el comando: mvn spring-boot:run 
+     
+
+
+java -cp ../lib/hsqldb.jar org.hsqldb.server.Server --props C:\downloads\hsqldb-2.7.2\hsqldb\conf\server.properties --database.0 mem:mymemdb --dbname.0 mymemdb
+
+C:\downloads\hsqldb-2.7.2\hsqldb\data
