@@ -50,10 +50,10 @@ public class UserRestController {
         return returnedUserVO;
     }
 
-    @DeleteMapping("/users")
-    public UserVO deactivate(@RequestBody DeactivateRequest deactivateRequest) {
+    @DeleteMapping("/users/{userId}")
+    public UserVO deactivate(@PathVariable("userId") Integer userId) {
 
-        UserVO returnedUserVO = userService.deactivateByEmail(deactivateRequest.getEmail());
+        UserVO returnedUserVO = userService.deactivateById(userId);
         return returnedUserVO;
     }
 

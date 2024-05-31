@@ -2,20 +2,20 @@ package com.rdelarosa.jwt.api.entity;
 
 public class DeactivateRequest {
 
-    private String email;
+    private Integer id;
 
     public DeactivateRequest() {
     }
 
-    public DeactivateRequest(String email) {
-        this.email = email;
+    public DeactivateRequest(Integer id) {
+        this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

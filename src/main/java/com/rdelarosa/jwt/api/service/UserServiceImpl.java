@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserVO deactivateByEmail(String email) {
-        UserVO userVO = getUserByUsername(email);
+    public UserVO deactivateById(Integer id) {
+        UserVO userVO = getUserById(id);
         userVO.setActive(false);
         UserVO userVOResponse = update(userVO);
         return userVOResponse;
