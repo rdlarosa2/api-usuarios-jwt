@@ -1,7 +1,8 @@
-package com.javatechie.jwt.api.controller;
+package com.rdelarosa.jwt.api.controller;
 
-import com.javatechie.jwt.api.entity.AuthRequest;
-import com.javatechie.jwt.api.util.JwtUtil;
+import com.rdelarosa.jwt.api.entity.AuthRequest;
+import com.rdelarosa.jwt.api.service.UserService;
+import com.rdelarosa.jwt.api.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +19,9 @@ public class WelcomeController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/")
     public String welcome() {
         return "Welcome to javatechie !!";
@@ -30,8 +34,11 @@ public class WelcomeController {
                     new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception("inavalid username/password");
+            throw new Exception("invalid username/password");
         }
-        return jwtUtil.generateToken(authRequest.getUserName());
+
+        String token = jwtUtil.generateToken(authRequest.getUserName());
+        userService.updateLastLogin(authRequest.getUserName(),token);
+        return token;
     }
 }

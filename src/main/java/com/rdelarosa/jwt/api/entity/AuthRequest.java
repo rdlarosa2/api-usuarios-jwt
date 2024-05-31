@@ -1,4 +1,4 @@
-package com.javatechie.jwt.api.entity;
+package com.rdelarosa.jwt.api.entity;
 /*
 import lombok.AllArgsConstructor;
 import lombok.Data;

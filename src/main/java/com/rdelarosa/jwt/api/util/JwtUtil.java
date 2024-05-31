@@ -1,4 +1,4 @@
-package com.javatechie.jwt.api.util;
+package com.rdelarosa.jwt.api.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

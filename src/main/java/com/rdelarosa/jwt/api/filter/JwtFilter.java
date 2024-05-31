@@ -1,7 +1,7 @@
-package com.javatechie.jwt.api.filter;
+package com.rdelarosa.jwt.api.filter;
 
-import com.javatechie.jwt.api.service.CustomUserDetailsService;
-import com.javatechie.jwt.api.util.JwtUtil;
+import com.rdelarosa.jwt.api.service.UserService;
+import com.rdelarosa.jwt.api.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +22,8 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
     @Autowired
-    private CustomUserDetailsService service;
+    UserService service;
+    // private CustomUserDetailsService service;
 
 
     @Override
