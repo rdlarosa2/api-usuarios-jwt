@@ -1,6 +1,7 @@
 package com.rdelarosa.jwt.api.repository;
 
 import com.rdelarosa.jwt.api.entity.Phone;
+import com.rdelarosa.jwt.api.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import javax.persistence.NoResultException;
@@ -81,6 +82,27 @@ public class UserDAOImpl implements UserDAO {
 
     public List<Phone> getPhonesByUserId(Integer userId) {
         return entityManager.createQuery("from Phone where userId=" + userId).getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void deactivateById(Integer userId) {
+
+        User user = getUserById(userId);
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+
+        // create update
+        CriteriaUpdate<User> update = cb.
+                createCriteriaUpdate(User.class);
+
+        // set the root class
+        Root e = update.from(User.class);
+
+        update.set("active", Boolean.FALSE);
+
+        update.where(cb.equal(e.get("id"), userId));
+
+        int numEntitiesUpdated = entityManager.createQuery(update).executeUpdate();
     }
 
     @Override

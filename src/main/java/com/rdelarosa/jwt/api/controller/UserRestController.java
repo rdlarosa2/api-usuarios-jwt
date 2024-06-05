@@ -50,11 +50,10 @@ public class UserRestController {
         return returnedUserVO;
     }
 
-    @DeleteMapping("/users/{userId}")
-    public UserVO deactivate(@PathVariable("userId") Integer userId) {
+    @PutMapping("/users/{userId}")
+    public void deactivate(@PathVariable("userId") Integer userId) {
 
-        UserVO returnedUserVO = userService.deactivateById(userId);
-        return returnedUserVO;
+        userService.deactivateById(userId);
     }
 
     @ExceptionHandler

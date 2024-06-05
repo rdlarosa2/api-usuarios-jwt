@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.transaction.Transactional;
 import java.text.FieldPosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,11 +35,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserVO deactivateById(Integer id) {
-        UserVO userVO = getUserById(id);
-        userVO.setActive(false);
-        UserVO userVOResponse = update(userVO);
-        return userVOResponse;
+    @Transactional
+    public void deactivateById(Integer userId) {
+        userDAO.deactivateById(userId);
+        User user = userDAO.getUserById(userId);
     }
 
     @Override

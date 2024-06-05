@@ -5,6 +5,7 @@ import com.rdelarosa.jwt.api.entity.Phone;
 import com.rdelarosa.jwt.api.entity.User;
 
 public interface UserDAO {
+    void deactivateById(Integer userId);
     User findByUserName(String username);
     User getUserById(Integer id);
     List<User> findAll();

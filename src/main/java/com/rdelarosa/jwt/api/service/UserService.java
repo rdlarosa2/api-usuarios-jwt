@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public interface UserService {
 
-    UserVO deactivateById(Integer id);
+    void deactivateById(Integer id);
     List<UserVO> findAll();
     UserVO getUserById(Integer userId);
     UserVO getUserByUsername(String username);
