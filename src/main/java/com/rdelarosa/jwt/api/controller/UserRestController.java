@@ -1,6 +1,5 @@
 package com.rdelarosa.jwt.api.controller;
 
-import com.rdelarosa.jwt.api.entity.DeactivateRequest;
 import com.rdelarosa.jwt.api.exception.CreatingUserWithExistentEmailException;
 import com.rdelarosa.jwt.api.exception.UserErrorResponse;
 import com.rdelarosa.jwt.api.service.UserService;

@@ -86,7 +86,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     @Transactional
-    public void deactivateById(Integer userId) {
+    public int deactivateById(Integer userId) {
 
         User user = getUserById(userId);
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
@@ -103,6 +103,7 @@ public class UserDAOImpl implements UserDAO {
         update.where(cb.equal(e.get("id"), userId));
 
         int numEntitiesUpdated = entityManager.createQuery(update).executeUpdate();
+        return numEntitiesUpdated;
     }
 
     @Override
